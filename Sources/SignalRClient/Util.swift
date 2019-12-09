@@ -9,7 +9,9 @@
 import Foundation
 
 internal class Util {
+    private static let delegateQueue = DispatchQueue(label: "SwiftSignalRClient")
+  
     public static func dispatchToMainThread(action: @escaping () -> Void) {
-        DispatchQueue.main.async(execute: action)
+        delegateQueue.async(execute: action)
     }
 }
